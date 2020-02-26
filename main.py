@@ -13,6 +13,7 @@ def main():
                 api_id = s["_id"]["$id"]
                 created = s["created"]
                 status = s["status"]
+                xdrId = "https://gdr.openei.org/submissions/"+str(s["xdrId"])
                 resources = s["resources"]
                 for r in resources:
                     resource_name = r["name"]
@@ -22,7 +23,7 @@ def main():
                         if (resource_coordinates):
                             lat = r["coordinates"][0]
                             lng = r["coordinates"][1]
-                            writer.writerow([api_id, created, status,resource_name,resource_type,lat,lng])
+                            writer.writerow([api_id,xdrId, created, status,resource_name,resource_type,lat,lng])
 
                             # print (resource_coordinates)
 
